@@ -21,28 +21,40 @@ public class NbrPremiers {
         // ce nombre vas augmenter a chaque fois qu'il est verifier
         int candidat = 2;
 
-//Je print le premier crochet avant ma boucle
-            System.out.print("[ ");
+        //Je print le premier crochet avant ma boucle
+        System.out.print("[ ");
 
         //  tant que nombre de premiers est en dessous de la target fait
         while (nbrOfPrimary < inputNbr) {
             // on part du principe que le nombre est premier de base
             boolean isPrime = true;
 
-            // parcours le nombre de 1 à n jusqu'a savoir si le nombre n'est pas premier si le isPrime passe faux la boucle est arreté.
 
-            for (int i = 2; isPrime && i <= Math.sqrt(candidat); i++) {
+            for(int i = 0; isPrime && i< nbrOfPrimary && primaryNumbers[i] <= Math.sqrt(candidat); i++){
+                int dividor = primaryNumbers[i];
+                if(candidat% dividor == 0){
+                    isPrime = false;
+                }
+            }
+
+
+
+            // parcours le nombre de 1 à n jusqu'a savoir si le nombre n'est pas premier si le isPrime passe faux la boucle est arreté.
+            // the isPrime is the same as break;
+
+            /* for (int i = 2; isPrime && i <= Math.sqrt(candidat); i++) {
 
                 // Si à un moment le nombre est divisible alors il n'est pas premier
                 if (candidat % i == 0) {
                     isPrime = false;
                 }
-            }
+            }*/
 
             // Si premier
             if (isPrime) {
 
-//je stock le candidat en fonction du nombre de premier qui est incrémenté
+                //je stock le candidat en fonction du nombre de premier qui est incrémenté
+
                 primaryNumbers[nbrOfPrimary] = candidat;
                 //J'imprimme
 
@@ -51,13 +63,15 @@ public class NbrPremiers {
                 ++nbrOfPrimary;
             }
 
-            //Nous sommes encore dans loop
+            //Nous sommes encore dans loop for
             candidat++;
 
-        }
+        } //end for loop
 
         //j'imprime après ma boucle while
         System.out.println("]");
-    }
+
+
+    } // end main
 }
 
