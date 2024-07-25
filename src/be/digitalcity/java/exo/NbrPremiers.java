@@ -15,12 +15,16 @@ public class NbrPremiers {
 
         //Nombre de premiers
         int nbrOfPrimary = 0;
+        //Declaration du tableau
 
+        int[] primaryNumbers = new int[inputNbr];
         // ce nombre vas augmenter a chaque fois qu'il est verifier
         int candidat = 2;
 
+//Je print le premier crochet avant ma boucle
+            System.out.print("[ ");
 
-        // tant que nombre de premiers est en dessous de la target fait
+        //  tant que nombre de premiers est en dessous de la target fait
         while (nbrOfPrimary < inputNbr) {
             // on part du principe que le nombre est premier de base
             boolean isPrime = true;
@@ -35,18 +39,25 @@ public class NbrPremiers {
                 }
             }
 
-            // Si prime
+            // Si premier
             if (isPrime) {
-                System.out.println(candidat);
+
+//je stock le candidat en fonction du nombre de premier qui est incrémenté
+                primaryNumbers[nbrOfPrimary] = candidat;
+                //J'imprimme
+
+                System.out.print(primaryNumbers[nbrOfPrimary] + " ");
+
                 ++nbrOfPrimary;
             }
 
             //Nous sommes encore dans loop
             candidat++;
+
         }
 
-        System.out.println(candidat);
-
-         }
+        //j'imprime après ma boucle while
+        System.out.println("]");
+    }
 }
 
