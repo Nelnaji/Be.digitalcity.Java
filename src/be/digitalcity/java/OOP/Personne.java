@@ -5,12 +5,10 @@ public class Personne {
 
     String prenom;
     String nom;
-
+// (Parametres)
     void appeler(Personne aSaluer) {
         System.out.printf("Bonjour %s %s, je m'appelle %s %s \n", aSaluer.prenom, aSaluer.nom, this.prenom, this.nom);
     }
-
-    ;
 
 
     public Personne(String prenom, String nom) {
