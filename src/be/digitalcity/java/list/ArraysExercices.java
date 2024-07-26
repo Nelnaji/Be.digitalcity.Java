@@ -1,6 +1,7 @@
 package be.digitalcity.java.list;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ArraysExercices {
     public static void main(String[] args) {
@@ -14,5 +15,6 @@ public class ArraysExercices {
         prenoms.add("test");
 
         System.out.println(prenoms);
+
     }
 }

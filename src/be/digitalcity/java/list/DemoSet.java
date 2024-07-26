@@ -1,6 +1,9 @@
 package be.digitalcity.java.list;
 
 import java.util.HashSet;
+import java.util.Set;
+import java.util.Iterator;
+
 
 public class DemoSet {
 
@@ -22,5 +25,22 @@ public class DemoSet {
 
         // retirer
         prenoms.remove("Johana"); // equals()
+
+
+
+
+        Set<String> set = Set.of("Bidule", "bazar", "machin");
+        for (String s : set) {
+            System.out.println(s);
+        }
+
+        for (Iterator<String> iter = set.iterator(); iter.hasNext();){
+            String s = iter.next();
+            System.out.println(s);
+        }
+
+
+
+
     }
 }
