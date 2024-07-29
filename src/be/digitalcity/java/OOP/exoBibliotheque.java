@@ -1,14 +1,12 @@
-package be.digitalcity.java.exo;
+package be.digitalcity.java.OOP;
 
 import java.time.LocalDate;
-import java.util.LinkedList;
 
 public class exoBibliotheque {
     public static void main(String[] args) {
 
         Bibliotheque royale = new Bibliotheque();
         royale.name = "Bibliotheque Royale";
-        royale.bookList = new LinkedList<>();
 
         Book monteCristo = new Book("Le Comte de Monte Cristo", "Alexandre Dumas", LocalDate.of(2000, 10, 4));
         Book miserables = new Book("Les Miserables", "Victor Hugo", LocalDate.of(2000, 9, 4));
@@ -21,7 +19,7 @@ public class exoBibliotheque {
         royale.addBook(reineMargot);
         royale.deleteBook(miserables);
 
-        royale.searchBook(monteCristo);
+//        royale.searchBook(monteCristo);
 
         royale.printBookList();
         System.out.println( royale.bookList );
