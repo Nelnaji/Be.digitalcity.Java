@@ -5,7 +5,8 @@ public class Personne {
 
     String prenom;
     String nom;
-// (Parametres)
+
+    // (Parametres)
     void appeler(Personne aSaluer) {
         System.out.printf("Bonjour %s %s, je m'appelle %s %s \n", aSaluer.prenom, aSaluer.nom, this.prenom, this.nom);
     }
@@ -24,7 +25,9 @@ public class Personne {
 
         nawfal.appeler(john);
         john.appeler(nawfal);
-
-
     }
+
+
+
+
 }
