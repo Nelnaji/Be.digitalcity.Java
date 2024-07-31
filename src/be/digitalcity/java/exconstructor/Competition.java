@@ -6,8 +6,8 @@ import java.util.List;
 public class Competition {
     String name;
     boolean status;
-    final int minParticipants;
-    final int maxParticipants;
+    int minParticipants;
+    int maxParticipants;
     int nbrParticipants;
 
     // Utiliser un Set car plus stable
