@@ -9,7 +9,7 @@ public abstract class Compte {
     private Personne titulaire;
     private double tauxInteret;
 
-    public Compte(String numero, Personne titulaire){
+    public Compte(String numero, Personne titulaire) {
 
         this.numero = numero;
         this.setTitulaire(titulaire);
@@ -56,27 +56,27 @@ public abstract class Compte {
     // endregion
 
     //region Methods
-    public void retrait(double montant){
-        if(montant > 0 ){
+    public void retrait(double montant) {
+        if (montant > 0) {
             solde -= montant;
         }
 
     }
 
-    public void depot(double montant){
-        if(montant >=0){
+    public void depot(double montant) {
+        if (montant >= 0) {
             solde += montant;
         }
-      }
+    }
     // endregion
 
     protected abstract double calculInteret();
 
-    public void appliquerInteret(){
+    public void appliquerInteret() {
 
         double interetTotal = getSolde() + calculInteret();
 
-        System.out.printf("votre compte %s à un solde de %s et un taux d'interet de %.2f votre interet Toral est donc de %.2f " , getClass().getSimpleName()
+        System.out.printf("votre compte %s à un solde de %s et un taux d'interet de %.2f votre interet Toral est donc de %.2f ", getClass().getSimpleName()
                 , getSolde(), calculInteret(), interetTotal);
     }
 }

@@ -2,9 +2,10 @@ package be.digitalcity.java.encapsulation;
 
 import java.time.LocalDateTime;
 
-public class Epargne extends Compte {
+public class Epargne extends Compte implements ActionCompte {
 
     private LocalDateTime dateDernierRetrait;
+
     Epargne(String numero, Personne titulaire) {
         super(numero, titulaire);
     }
@@ -21,7 +22,7 @@ public class Epargne extends Compte {
     protected double calculInteret() {
         return getSolde() * 0.045;
     }
-        //endregion
+    //endregion
 
 
 }
