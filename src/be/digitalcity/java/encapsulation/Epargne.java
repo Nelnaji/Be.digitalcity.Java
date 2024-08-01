@@ -4,15 +4,24 @@ import java.time.LocalDateTime;
 
 public class Epargne extends Compte {
 
-    private
-    LocalDateTime dateDernierRetrait;
+    private LocalDateTime dateDernierRetrait;
+    Epargne(String numero, Personne titulaire) {
+        super(numero, titulaire);
+    }
 
-    Epargne(String numero, Personne titulaire, double solde) {
-        super(numero, titulaire, solde);
-         }
+    //region Override
+    @Override
+    public void retrait(double montant) {
+        if (getSolde() >= montant) ;
+        super.retrait(montant);
+
+    }
 
     @Override
-    public void setSolde(double solde) {
-        super.setSolde(solde);
+    protected double calculInteret() {
+        return getSolde() * 0.045;
     }
+        //endregion
+
+
 }
