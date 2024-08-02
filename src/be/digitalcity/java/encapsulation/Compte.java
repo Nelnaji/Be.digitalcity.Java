@@ -2,7 +2,7 @@ package be.digitalcity.java.encapsulation;
 
 import java.util.Objects;
 
-public abstract class Compte {
+public abstract class Compte implements Banker {
 
     private final String numero;
     private double solde;
@@ -54,6 +54,8 @@ public abstract class Compte {
     }
 
     // endregion
+
+
 
     //region Methods
     public void retrait(double montant) {

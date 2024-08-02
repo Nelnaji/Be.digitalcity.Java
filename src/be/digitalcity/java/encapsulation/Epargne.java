@@ -2,7 +2,7 @@ package be.digitalcity.java.encapsulation;
 
 import java.time.LocalDateTime;
 
-public class Epargne extends Compte implements ActionCompte {
+public class Epargne extends Compte  {
 
     private LocalDateTime dateDernierRetrait;
 

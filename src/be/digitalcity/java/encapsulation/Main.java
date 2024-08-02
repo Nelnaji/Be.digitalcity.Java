@@ -14,5 +14,12 @@ public class Main {
         courantPersonne1.depot(200);
         courantPersonne1.calculInteret();
         courantPersonne1.appliquerInteret();
+
+
+        //La signature d'une methode
+        //nomMethod(String,Int)
+        //nomMethod(Int,String)
+
+
     }
 }

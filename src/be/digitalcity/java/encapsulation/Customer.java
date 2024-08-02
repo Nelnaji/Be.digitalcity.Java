@@ -1,12 +1,11 @@
 package be.digitalcity.java.encapsulation;
 
-public interface ActionCompte {
+public interface Customer {
 
-    /* public static final */int test = 816;
+    double getSolde();
 
     void retrait(double montant);
 
     void depot(double montant);
-
 
 }

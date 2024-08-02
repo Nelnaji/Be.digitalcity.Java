@@ -1,31 +1,39 @@
 package be.digitalcity.java.exconstructor;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class Competition {
-    String name;
-    boolean status;
-    int minParticipants;
-    int maxParticipants;
-    int nbrParticipants;
+import java.util.HashSet;
+import java.util.Set;
 
-    // Utiliser un Set car plus stable
-    final List<Participant> listeParticipants = new ArrayList<>();
+public class Competition<T extends Competiteur> {
+    private String titreCompet;
+    private boolean statusCompet;
+    private int minParticipants;
+    private int maxParticipants;
+    private int nbrParticipants;
+    private Set<T> listeParticipants = new HashSet<>();
 
-    void startCompetition() {
-        nbrParticipants = listeParticipants.size();
-        if (!status && nbrParticipants >= 3) {
-            status = true;
-            System.out.printf("La compétition %s est lancée avec %d participants \n", name, nbrParticipants);
-        }
-        System.out.println("pas assé de participants");
+    //region Constructor
+
+    Competition(String titreCompet) {
+        this.titreCompet = titreCompet;
     }
 
+    Competition(String titreCompet, int maxParticipants) {
+        this.titreCompet = titreCompet;
+        this.maxParticipants = maxParticipants;
+    }
 
-    void addParticipant(Participant participant) {
+    Competition(String titreCompet, int minParticipants, int maxParticipants) {
+        this.titreCompet = titreCompet;
+        this.minParticipants = minParticipants;
+        this.maxParticipants = maxParticipants;
+    }
+    //endregion
 
-        if (!status || listeParticipants.size() < maxParticipants) {
+
+    public void addParticipant(T participant) {
+
+        if (!statusCompet || listeParticipants.size() < maxParticipants) {
             listeParticipants.add(participant);
             System.out.println("Le participant a été ajouté");
         } else {
@@ -33,29 +41,20 @@ public class Competition {
         }
     }
 
-//many constructor functions
-
-/*    Competition() {
-        this.minParticipants = 3;
-        this.maxParticipants = 12;
-    }*/
-
-    Competition(String name) {
-        this.name = name;
+    public void removeParticipant(T participant) {
+        listeParticipants.remove(participant);
     }
 
-    Competition(String name, int minParticipants) {
-        this.name = name;
-        this.minParticipants = minParticipants;
+    public void startCompetition() {
+        nbrParticipants = listeParticipants.size();
+        if (!statusCompet && nbrParticipants >= 3) {
+            statusCompet = true;
+            System.out.printf("La compétition %s est lancée avec %d de %s \n", titreCompet, nbrParticipants
+            );
+        }
+        System.out.println("pas assé de participants");
     }
 
-    Competition(String name, int minParticipants, int maxParticipants) {
-        this.name = name;
-        this.minParticipants = minParticipants;
-        this.maxParticipants = maxParticipants;
-    }
-   Competition() {
-     this("allo",3,12);
-    }
 
 }
+
