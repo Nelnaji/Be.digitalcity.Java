@@ -1,7 +1,5 @@
 package be.digitalcity.java.encapsulation;
 
-import java.util.Objects;
-
 public abstract class Compte implements Banker {
 
     private final String numero;
@@ -28,6 +26,7 @@ public abstract class Compte implements Banker {
     }
 
 
+
     public double getSolde() {
         return solde;
     }
@@ -38,11 +37,11 @@ public abstract class Compte implements Banker {
 
 
     public void setTitulaire(Personne titulaire) {
-        if (titulaire != null) {
-            this.titulaire = titulaire;
-        } else {
-            throw new RuntimeException();
+
+        if (titulaire == null) {
+            throw new NoTitulaireException();
         }
+        this.titulaire = titulaire;
     }
 
     private double getTauxInteret() {
@@ -56,12 +55,15 @@ public abstract class Compte implements Banker {
     // endregion
 
 
-
     //region Methods
     public void retrait(double montant) {
-        if (montant > 0) {
-            solde -= montant;
+
+        if (montant < 0) {
+            throw new RuntimeException("Solde Insuffisant");
         }
+
+            solde -= montant;
+
 
     }
 
@@ -69,6 +71,8 @@ public abstract class Compte implements Banker {
         if (montant >= 0) {
             solde += montant;
         }
+
+
     }
     // endregion
 

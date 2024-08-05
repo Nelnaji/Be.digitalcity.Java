@@ -18,6 +18,7 @@ public class Courant extends Compte {
     }
 
     public void setLigneDeCredit(double ligneDeCredit) {
+
         this.ligneDeCredit = ligneDeCredit;
         System.out.printf("Votre ligne de crédit est de : %.02f \n", ligneDeCredit);
     }
@@ -25,9 +26,10 @@ public class Courant extends Compte {
 
     @Override
     public void retrait(double montant) {
-        if (montant > 0 && montant <= getSolde() + ligneDeCredit) {
-            super.retrait(montant);
+        if (montant < 0 || montant >= getSolde() + ligneDeCredit) {
+            throw new RuntimeException("Solde insuffisant testatin");
         }
+        super.retrait(montant);
     }
 
     @Override
