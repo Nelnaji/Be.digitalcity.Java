@@ -16,6 +16,13 @@ public final class Des {
 
         public static void lancerPlusieursDes(int nbrFace, int nbrLances, int nbrAGarder ){
 
+            if(nbrFace != 6 || nbrFace != 10 || nbrFace != 20 || nbrFace != 100){
+
+                throw new RuntimeException("Mauvais dés, seules les dés de 6/10/20 et 100 faces sont acceptés");
+            }
+
+
+
             List<Integer> listDesGardes = new ArrayList<>();
 
             Random random = new Random();
