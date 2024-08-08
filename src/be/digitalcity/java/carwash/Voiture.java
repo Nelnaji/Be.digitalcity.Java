@@ -1,7 +1,8 @@
 package be.digitalcity.java.carwash;
 
 public class Voiture {
-private String plaque;
+
+private final String plaque;
 
     public Voiture(String plaque) {
         this.plaque = plaque;
@@ -11,7 +12,5 @@ private String plaque;
         return plaque;
     }
 
-    public void setPlaque(String plaque) {
-        this.plaque = plaque;
-    }
+
 }

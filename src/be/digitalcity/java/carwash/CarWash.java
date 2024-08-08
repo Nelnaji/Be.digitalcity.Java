@@ -1,14 +1,13 @@
 package be.digitalcity.java.carwash;
-
 import java.util.List;
 
 public class CarWash {
 
 
-    List<ActionVoiture> maListeDactions = List.of((laVoiture) -> System.out.println("Je prépare la voiture: " + laVoiture),
-            (laVoiture) -> System.out.println("Je lave la voiture " + laVoiture),
-            (laVoiture) -> System.out.println("je seche la voiture " + laVoiture),
-            (laVoiture) -> System.out.println(""));
+    List<ActionVoiture<Voiture>> maListeDactions = List.of((V) -> preparer(V),
+            (V) -> laver(V),
+            (V) -> secher(V),
+            (V) -> finaliser(V));
 
 
     //region La Manière redondante
@@ -28,8 +27,10 @@ public class CarWash {
         System.out.println("Je finalise la voiture: " + V.getPlaque());
     }
 
-    public void <ActionVoiture> List<ActionVoiture> traiter(List<ActionVoiture> V) {
-        System.out.println(V);
+    public void traiter(Voiture v) {
+
+      maListeDactions.forEach( (e) -> e.maMethodeFonctionnelle(v));
+
     }
     //endregion
 }
